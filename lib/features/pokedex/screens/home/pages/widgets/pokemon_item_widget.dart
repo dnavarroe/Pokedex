@@ -8,16 +8,18 @@ class PokemonItemWidget extends StatelessWidget {
     super.key,
     required this.pokemon,
     required this.onTap,
+    required this.index,
   });
   final Pokemon pokemon;
   final Function(String, DetailArguments) onTap;
+  final int index;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => onTap(
         '/details',
-        DetailArguments(pokemon: pokemon),
+        DetailArguments(pokemon: pokemon, index: index),
       ),
       child: Stack(
         children: [
@@ -63,7 +65,7 @@ class PokemonItemWidget extends StatelessWidget {
                             .toList(),
                       ),
                       Flexible(
-                          child: Container(
+                        child: Container(
                         height: 100,
                         width: 100,
                       ))
@@ -73,7 +75,14 @@ class PokemonItemWidget extends StatelessWidget {
               ),
             ),
           ),
-          Positioned(right: 2, bottom: 10, child: Image.network(pokemon.image))
+          Positioned(
+            right: 2,
+            bottom: 10,
+            child: Image.network(
+              pokemon.image,
+              height: 120,
+            ),
+          )
         ],
       ),
     );

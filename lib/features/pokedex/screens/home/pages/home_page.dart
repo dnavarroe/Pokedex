@@ -44,6 +44,7 @@ class HomePage extends StatelessWidget {
                 .map((e) => PokemonItemWidget(
                       pokemon: e,
                       onTap: onItemTap,
+                      index: list.indexOf(e),
                     ))
                 .toList()),
       ),
