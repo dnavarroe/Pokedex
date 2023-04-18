@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex/commons/repositories/pokemon_repository.dart';
+import 'package:pokedex/commons/repositories/repository2.dart';
 import 'package:pokedex/features/pokedex/screens/details/container/detail_container.dart';
 import 'package:pokedex/features/pokedex/screens/home/container/home_container.dart';
 
 class PokedexRoute extends StatelessWidget {
   const PokedexRoute({super.key, required this.repository});
 
+  
   final PokemonRepository repository;
   @override
   Widget build(BuildContext context) {

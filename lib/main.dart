@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:pokedex/commons/repositories/pokemon_repository.dart';
+import 'package:pokedex/commons/repositories/repository2.dart';
 import 'package:pokedex/features/pokedex/routes.dart';
 
 void main() {
@@ -19,15 +19,8 @@ class MyApp extends StatelessWidget {
         ),
         home: PokedexRoute(
             repository: PokemonRepository(
-          dio: Dio()
-          )
-        )
-
-        /*HomeContainer(
-        repository: PokemonRepository(
-          dio: Dio()
-        ),
-      ),*/
+              dio: Dio(),
+            ),)
         );
   }
 }

@@ -20,7 +20,7 @@ class DetailItemListWidget extends StatelessWidget {
                 Tween<double>(end: isDiff ? 100 : 300, begin: isDiff ? 300 : 100),
             builder: (context, value, child) {
               return Image.network(
-                pokemon.image,
+                pokemon.imageurl,
                 width: value,
                 fit: BoxFit.contain,
                 color: isDiff ? Colors.black.withOpacity(0.4) : null,

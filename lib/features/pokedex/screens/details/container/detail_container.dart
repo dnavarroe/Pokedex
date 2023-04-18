@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/commons/error/fail.dart';
 import 'package:pokedex/commons/models/pokemon.dart';
-import 'package:pokedex/commons/repositories/pokemon_repository.dart';
+import 'package:pokedex/commons/repositories/repository2.dart';
 import 'package:pokedex/commons/widgets/po_error.dart';
 import 'package:pokedex/commons/widgets/po_loading.dart';
 import 'package:pokedex/features/pokedex/screens/details/pages/detail_page.dart';
@@ -38,7 +38,7 @@ class _DetailContainerState extends State<DetailContainer> {
       viewportFraction: 0.5,
       initialPage: widget.arguments.index!
     );
-    _future = widget.repository.getAllPokemons();
+    _future = widget.repository.getAllPokemons2();
     super.initState();
   }
 

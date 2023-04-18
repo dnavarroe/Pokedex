@@ -46,7 +46,7 @@ class PokemonItemWidget extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        '#${pokemon.num}',
+                        pokemon.id,
                         style: TextStyle(
                             color: Colors.black.withOpacity(0.6),
                             fontWeight: FontWeight.bold,
@@ -60,7 +60,7 @@ class PokemonItemWidget extends StatelessWidget {
                     children: [
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: pokemon.type
+                        children: pokemon.types
                             .map((e) => TypeWidget(name: e))
                             .toList(),
                       ),
@@ -78,8 +78,23 @@ class PokemonItemWidget extends StatelessWidget {
           Positioned(
             right: 2,
             bottom: 10,
+            child: Opacity(
+                opacity: 0.3,
+                child: Transform(
+                  alignment: Alignment.center,
+                  transform: Matrix4.rotationZ(0.4),
+                  child: Image.asset(
+                    'assets/pokeball.png',
+                    height: 120,
+                  ),
+                ),
+              ),
+          ),
+          Positioned(
+            right: 2,
+            bottom: 10,
             child: Image.network(
-              pokemon.image,
+              pokemon.imageurl,
               height: 120,
             ),
           )

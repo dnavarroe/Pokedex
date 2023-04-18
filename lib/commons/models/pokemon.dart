@@ -1,30 +1,60 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 class Pokemon {
   final String name;
-  final List<String> type;
-  final int id;
-  final String num;
+  final String id;
+  final String imageurl;
+  final String xdescription;
+  final List<String> types;
+  final List<String> weaknesses;
+  final List<String> evolutions;
+  final String evolvedfrom;
+  final String reason;
+  final List<int> stats;
 
   factory Pokemon.fromMap(Map<String, dynamic> json) {
     return Pokemon(
         name: json['name'],
         id: json['id'],
-        num: json['num'],
-        type: (json['type'] as List<dynamic>).map((e) => e as String).toList()
-    );
+        imageurl: json['imageurl'],
+        xdescription: json['xdescription'],
+        types: (json['typeofpokemon'] as List<dynamic>)
+            .map((e) => e as String)
+            .toList(),
+        weaknesses: (json['weaknesses'] as List<dynamic>)
+            .map((e) => e as String)
+            .toList(),
+        evolutions: (json['evolutions'] as List<dynamic>)
+            .map((e) => e as String)
+            .toList(),
+        evolvedfrom: json['evolvedfrom'],
+        reason: json['reason'],
+        stats: [
+          json['hp'],
+          json['attack'],
+          json['defense'],
+          json['special_attack'],
+          json['special_defense'],
+          json['speed'],
+          json['total'],
+        ]);
   }
-  Color? get baseColor => _color(type: type[0]);
-  String get image =>
-      'https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/images/$num.png';
-      //'https://assets.pokemon.com/assets/cms2/img/pokedex/full/$num.png';
 
   Pokemon({
     required this.name,
-    required this.type,
     required this.id,
-    required this.num,
+    required this.imageurl,
+    required this.xdescription,
+    required this.types,
+    required this.weaknesses,
+    required this.evolvedfrom,
+    required this.reason,
+    required this.stats,
+    required this.evolutions
   });
+  Color? get baseColor => _color(type: types[0]);
 
   static Color? _color({required String type}) {
     switch (type) {
